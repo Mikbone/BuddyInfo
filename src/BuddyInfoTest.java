@@ -17,10 +17,6 @@ public class BuddyInfoTest {
 		buddy4 = new BuddyInfo(buddy1);
 	}
 
-	@After
-	public void tearDown() throws Exception {
-	}
-
 	@Test
 	public void testBuddyInfoBuddyInfo() {
 		assertEquals("buddy1 should equal buddy4",buddy1,buddy4);
