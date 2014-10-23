@@ -7,6 +7,8 @@ import org.junit.Test;
 
 public class BuddyInfoTest {
 
+	private BuddyInfo buddy1 = null, buddy2 = null, buddy3 = null;
+	
 	@Before
 	public void setUp() throws Exception {
 	}

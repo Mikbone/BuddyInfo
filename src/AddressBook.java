@@ -42,4 +42,8 @@ public class AddressBook {
 		return addressbook.size();
 			
 	}
+	
+	public void clear(){
+		addressbook.clear();
+	}
 }
