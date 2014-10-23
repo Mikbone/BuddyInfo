@@ -51,7 +51,7 @@ public class BuddyInfo {
 		return age;
 	}
 
-	public boolean isOver18(int age) {
+	public boolean isOver18() {
 		return (age>=18);
 	}
 	
@@ -77,6 +77,41 @@ public class BuddyInfo {
 		info= "Name: "+getName()+ " | "+"Address: "+getAddress()+" | " +"Phone Number: "+getPhonenumber();
 		return info;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		BuddyInfo other = (BuddyInfo) obj;
+		if (address == null) {
+			if (other.address != null)
+				return false;
+		} else if (!address.equals(other.address))
+			return false;
+		if (age != other.age)
+			return false;
+		if (greeting == null) {
+			if (other.greeting != null)
+				return false;
+		} else if (!greeting.equals(other.greeting))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		if (phonenumber == null) {
+			if (other.phonenumber != null)
+				return false;
+		} else if (!phonenumber.equals(other.phonenumber))
+			return false;
+		return true;
+	}
+	
 	
 }
 
