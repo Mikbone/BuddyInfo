@@ -47,6 +47,7 @@ public class AddressFrame extends JFrame implements ActionListener {
 		// TODO Auto-generated method stub
 		final ArrayList<AddressBook> alist= new ArrayList<AddressBook>();
 		alist.add(abook);
+		
 		//System.out.println(buddy.getInfo());
 		
 		//Create the menu bar.
@@ -116,18 +117,8 @@ public class AddressFrame extends JFrame implements ActionListener {
 		});
 		saveList.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				if(abook.size() == 0)
-				abook=alist.get(alist.size()-1);
-				PrintWriter out = null;
-				try {
-					out = new PrintWriter(abook.getName() +".txt");
-				} catch (FileNotFoundException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				out.println(alist.get(abook.size()-1).toString());
-				out.close();
+				
+				abook.export(alist);
 				text.setText("Address Book Saved");
 			}
 		});
@@ -158,6 +149,13 @@ public class AddressFrame extends JFrame implements ActionListener {
 		a.add(list,BorderLayout.SOUTH);
 		a.add(text,BorderLayout.NORTH);
 		a.setVisible(true);
+		
+		String testy = "Bob~101 DROP TABLES~123-456-790";
+		BuddyInfo buddytest = new BuddyInfo("","","");
+		buddytest = buddytest.buddyImport(testy);
+		abook.addBuddy(buddytest);
+		model.addElement(buddytest);
+		
 		}
 		
 		

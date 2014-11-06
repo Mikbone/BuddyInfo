@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 
 public class BuddyInfo {
 	
@@ -72,9 +74,14 @@ public class BuddyInfo {
 		this.phonenumber = phonenumber;
 	}
 	
-	public String toString(){
+	public String toString_Legacy(){
 		String info="";
 		info= "Name: "+getName()+ " | "+"Address: "+getAddress()+" | " +"Phone Number: "+getPhonenumber();
+		return info;
+	}
+	public String toString(){
+		String info="";
+		info= getName()+ "~" + getAddress() + "~" + getPhonenumber();
 		return info;
 	}
 	
@@ -112,7 +119,18 @@ public class BuddyInfo {
 		return true;
 	}
 	
-	
+	public static BuddyInfo buddyImport(String s)
+	{
+		//But its not done
+		Scanner sc = new Scanner(s);
+		String n,a,p;
+		sc.useDelimiter("~");
+		n = sc.next();
+		a = sc.next();
+		p = sc.next();
+		sc.close();
+		return new BuddyInfo(n,a,p);
+	}
 }
 
 
